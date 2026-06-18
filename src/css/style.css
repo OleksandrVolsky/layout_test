@@ -1,0 +1,366 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--font);
+  min-height: 100vh;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 40px clamp(18px, 5vw, 72px);
+}
+
+/* header */
+.header {
+  width: min(100%, 860px);
+  margin: 0 0 28px;
+}
+
+.header h1 {
+  color: var(--font);
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+/* aside */
+.aside {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex: 0 0 250px;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
+    var(--aside);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.aside::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: 34px;
+  width: 54px;
+  height: 54px;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  box-shadow:
+    16px 16px 0 rgba(47, 125, 104, 0.9),
+    32px 32px 0 rgba(197, 141, 56, 0.9);
+}
+
+.aside::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 42%;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 44%,
+      rgba(255, 255, 255, 0.08) 44% 45%,
+      transparent 45%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 0 58%,
+      rgba(47, 125, 104, 0.28) 58% 59%,
+      transparent 59%
+    );
+  background-size: 34px 34px;
+  opacity: 0.7;
+}
+
+/* main */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: min(100%, 860px);
+}
+
+#tasks__container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  width: min(100%, 760px);
+}
+
+.tasksEl {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  min-height: 68px;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  padding: 14px 14px 14px 18px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tasksEl:hover {
+  border-color: rgba(47, 125, 104, 0.34);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.tasksP {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--font);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.buttonsBlock {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.editBtn,
+.delBtn,
+.tasksEl button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tasksEl button svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  pointer-events: none;
+}
+
+.tasksEl button svg path {
+  fill: currentColor;
+  transition: transform 0.2s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.editBtn {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.editBtn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(47, 125, 104, 0.2);
+}
+
+.delBtn {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.delBtn:hover {
+  background: var(--danger);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(189, 75, 75, 0.2);
+}
+
+.tasksEl button:not(.editBtn):not(.delBtn) {
+  background: rgba(197, 141, 56, 0.14);
+  color: #855a1f;
+}
+
+.tasksEl button:not(.editBtn):not(.delBtn):hover {
+  background: var(--warning);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(197, 141, 56, 0.22);
+}
+
+.editBtn:hover svg path,
+.delBtn:hover svg path,
+.tasksEl button:hover svg path {
+  transform: scale(1.08);
+}
+
+.editBtn:focus-visible,
+.delBtn:focus-visible,
+.tasksEl button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.editBtn:active,
+.delBtn:active,
+.tasksEl button:active {
+  transform: scale(0.96);
+}
+
+.tasksEl input:not([type="checkbox"]) {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  color: var(--font);
+  font: inherit;
+  font-weight: 600;
+  outline: none;
+  padding: 10px 12px;
+}
+
+.tasksEl input:not([type="checkbox"]):focus {
+  border-color: var(--accent);
+  box-shadow: var(--focus);
+}
+
+.tasksEl input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.completed {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+}
+
+.editBtn.hidden,
+.delBtn.hidden {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .wrapper {
+    display: block;
+  }
+
+  .aside {
+    position: relative;
+    flex: none;
+    width: 100%;
+    min-height: 92px;
+  }
+
+  .aside::before {
+    top: 20px;
+    left: 22px;
+    width: 32px;
+    height: 32px;
+    box-shadow:
+      10px 10px 0 rgba(47, 125, 104, 0.9),
+      20px 20px 0 rgba(197, 141, 56, 0.9);
+  }
+
+  .aside::after {
+    left: 160px;
+    width: calc(100% - 160px);
+    height: 100%;
+  }
+
+  .container {
+    padding: 28px 16px;
+  }
+
+  .header {
+    margin-bottom: 22px;
+  }
+
+  .input__label,
+  #tasks__container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    padding-inline: 12px;
+  }
+
+  .input__label {
+    padding: 7px;
+  }
+
+  #addTasksInput {
+    font-size: 16px;
+    padding-inline: 10px;
+  }
+
+  #addTasksBtn {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .tasksEl {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .buttonsBlock {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .editBtn,
+  .delBtn,
+  .tasksEl button {
+    width: 40px;
+    min-width: 40px;
+  }
+}

@@ -1,0 +1,22 @@
+:root {
+  --bg: #f6f4ef;
+  --surface: #fffdf8;
+  --surface-strong: #ffffff;
+  --font: #24211d;
+  --muted: #81786d;
+  --aside: #1f2725;
+  --border: #ded7cb;
+  --shadow: 0 24px 70px rgba(44, 39, 31, 0.12);
+  --shadow-soft: 0 12px 30px rgba(44, 39, 31, 0.08);
+  --accent: #2f7d68;
+  --accent-dark: #235d4e;
+  --accent-soft: #dceee8;
+  --danger: #bd4b4b;
+  --danger-soft: #f5dfdd;
+  --warning: #c58d38;
+  --focus: 0 0 0 4px rgba(47, 125, 104, 0.18);
+
+  /* input */
+  --bg-input: #ffffff;
+  --font-input: #8b8378;
+}

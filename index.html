@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/components.css" />
+    <link rel="stylesheet" href="src/css/variables.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <title>To-do</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- aside -->
+      <aside class="aside"></aside>
+      <div class="container">
+        <!-- header -->
+        <header class="header">
+          <h1>My tasks</h1>
+        </header>
+        <!-- main -->
+        <main class="main">
+          <div class="input__label">
+            <input type="text" id="addTasksInput" placeholder="New Task" />
+            <button id="addTasksBtn">
+              <svg
+                class="icon"
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.9577 16H0V12H11.9577V0H15.9435V12H27.9012V16H15.9435V28H11.9577V16Z"
+                  fill="#AEAEAE"
+                />
+              </svg>
+            </button>
+          </div>
+          <div id="tasks__container">
+            <!-- tasks -->
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="src/js/script.js"></script>
+  </body>
+</html>
